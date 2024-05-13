@@ -4,15 +4,18 @@ class PreprocessData:
 
     PoliceKillingUS = None
     PovertyUS = None
-
     FilteredPoliceKillingUS = None
     FilteredPovertyUS = None
+
+    PoliceKillingFinal = None
+    PovertyUSFinal = None
 
     def __init__(self):
         self.PoliceKillingUS = pd.read_csv('./datasets/PoliceKillingsUS.csv',encoding='utf-8')
         self.PovertyUS = pd.read_csv('./datasets/PovertyUS.csv',encoding='utf-8')
-        self.filter_by_date()
+        self.filter_by_date() 
         self.save_to_csv()
+        self.deaths_to_percentage()
   
         
     def filter_by_date(self):
@@ -32,6 +35,25 @@ class PreprocessData:
     def save_to_csv(self):
         self.FilteredPoliceKillingUS.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
         self.FilteredPovertyUS.to_csv('./datasets/ProcessedPovertyUS.csv')
+    
+    def deaths_to_percentage(self):
+        df = pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2015-12-31')])
+        self.deaths_2015 = len(df['id'])
+        self.state_counts_2015 = df.groupby('state').size()
+        #print(self.deaths_2015)
+        print(self.state_counts_2015)
+        df = pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2016-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2016-12-31')])
+        self.deaths_2016 = len(df['id'])
+        self.state_counts_2016 = df.groupby('state').size()
+        #print(self.deaths_2016)
+        print(self.state_counts_2016)
+
+        # df = self.FilteredPoliceKillingUS
+        # columns = ["ID", "Name", "Date", "Method", "Weapon", "Age", "Gender", "Race", "City", "State", "Fleeing", "Fatal"]
+        # df.columns = columns
+        
+        #print(state_counts_2015)
+
 
 
 if __name__ == "__main__":
