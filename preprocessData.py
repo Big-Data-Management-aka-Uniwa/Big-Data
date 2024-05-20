@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 
 class PreprocessData:
@@ -80,6 +81,13 @@ class PreprocessData:
     def most_frequent(series):
         #print(series)
         return series.mode().iloc[0] 
+
+    def naming_states(self):
+        # Dictionary that maps state full names to abbreviations
+        with open('US_States.json', 'r') as file:
+            states = json.load(file)
+        
+        
 
 
 
