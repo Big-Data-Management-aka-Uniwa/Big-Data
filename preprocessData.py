@@ -1,3 +1,4 @@
+import json
 import pandas as pd
 
 class PreprocessData:
@@ -11,15 +12,20 @@ class PreprocessData:
     PoliceKillingFinal2016 = None
     PoliceKillingFinal = None
     PovertyUSFinal = None
+    USStates = None
 
     def __init__(self):
         self.PoliceKillingUS = pd.read_csv('./datasets/PoliceKillingsUS.csv',encoding='utf-8')
         self.PovertyUS = pd.read_csv('./datasets/PovertyUS.csv',encoding='utf-8')
-        self.filter_by_date() 
+        
+        self.filter_by_date()
+
+        self.naming_states()
         self.save_to_csv()
         self.PoliceKillingFinal2015 = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2015-12-31')]))
         self.PoliceKillingFinal2016 = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2016-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2016-12-31')]))
         self.PoliceKillingFinal = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2016-12-31')]))
+
         print(self.PoliceKillingFinal2015)
         print(self.PoliceKillingFinal2016)
 
@@ -50,8 +56,8 @@ class PreprocessData:
         #finds most frequest row for every state using most_frequest function
         summary = grouped.agg({ 
             'id': 'count', #counts the kills for this state
-            # 'name': PreprocessData.most_frequent,
-            # 'date': PreprocessData.most_frequent,
+            'name': PreprocessData.most_frequent,
+            'date': PreprocessData.most_frequent,
             'manner_of_death': PreprocessData.most_frequent,
             'armed': PreprocessData.most_frequent,
             'age': PreprocessData.most_frequent,
@@ -64,6 +70,7 @@ class PreprocessData:
             'body_camera': PreprocessData.most_frequent
         })
 
+        # Rename the 'id' column to 'count'
         summary = summary.rename(columns={'id': 'count'}) 
         
         
@@ -75,11 +82,27 @@ class PreprocessData:
 
         #print(summary)
         return summary
+    
     # finds the most frequent value
     @staticmethod
     def most_frequent(series):
         #print(series)
         return series.mode().iloc[0] 
+
+    def naming_states(self):
+
+        with open('us_states.json', 'r') as f:
+            self.USStates = json.load(f)
+
+        for name in self.PovertyUS['Name']:
+            if name in self.USStates:
+                self.FilteredPovertyUS['Name'] = self.FilteredPovertyUS['Name'].replace(name, self.USStates[name])
+
+
+                    
+
+                    
+        
 
 
 
