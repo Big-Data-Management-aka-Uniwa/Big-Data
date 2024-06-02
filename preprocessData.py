@@ -19,13 +19,14 @@ class PreprocessData:
         self.PovertyUS = pd.read_csv('./datasets/PovertyUS.csv',encoding='utf-8')
         
         self.filter_by_date()
-
         self.naming_states()
         self.save_to_csv()
         self.PoliceKillingFinal2015 = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2015-12-31')]))
         self.PoliceKillingFinal2016 = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2016-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2016-12-31')]))
         self.PoliceKillingFinal = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2016-12-31')]))
         self.PoliceKillingFinal.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
+        #self.PoliceKillingFinal2015.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
+        #self.PoliceKillingFinal2016.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
         print(self.PoliceKillingFinal2015)
         print(self.PoliceKillingFinal2016)
 
