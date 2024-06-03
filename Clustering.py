@@ -10,21 +10,24 @@ class Clustering:
     def __init__(self):
         self.PoliceKillingUS = pd.read_csv('./datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8')
         #self.PoliceKillingUS = pd.read_csv('./datasets/PolliceKillingUs_Average_2015_2016.csv', encoding='utf-8')
-        self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]
-        # self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016]
+        #self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]
+        self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016]
         
         self.PovertyUS = pd.read_csv('./datasets/ProcessedPovertyUS.csv', encoding='utf-8')
         #self.PovertyUS = pd.read_csv('./datasets/PovertyUS_Average_2015_2016.csv', encoding='utf-8')
-        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]
-        # self.PovertyUS = self.PovertyUS[(self.PovertyUS['Year'] == 2016)]
+        #self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]
+        self.PovertyUS = self.PovertyUS[(self.PovertyUS['Year'] == 2016)]
 
         self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='outer')
         self.Joined.fillna(0,inplace=True)
         self.Joined.loc[self.Joined['state'] == 0, 'state'] = self.Joined.loc[self.Joined['state'] == 0, 'Name']
         self.Joined.to_csv('./datasets/Joined.csv', index=False)
 
-        print(self.Joined)
-        self.X = self.Joined[['Percent in Poverty', 'percentage']]  # get the collumns that we want to correlate
+        #print(self.Joined)
+        self.Joined['Log Poverty'] = np.log1p(self.Joined['Number in Poverty'])
+        self.Joined['Log Killings'] = np.log1p(self.Joined['count'])
+        self.X = self.Joined[['Log Poverty', 'Log Killings']]
+        #self.X = self.Joined[['Percent in Poverty', 'percentage']]  # get the collumns that we want to correlate
         #self.X = self.Joined[['Percent in Poverty Avg', 'Avg Deaths in percentage']]  # get the collumns that we want to correlate
         # Normalization data
         xV1 = zscore(self.X.iloc[:,0])
