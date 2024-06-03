@@ -15,8 +15,8 @@ class PreprocessData:
     USStates = None
 
     def __init__(self):
-        self.PoliceKillingUS = pd.read_csv('./datasets/PoliceKillingsUS.csv',encoding='utf-8')
-        self.PovertyUS = pd.read_csv('./datasets/PovertyUS.csv',encoding='utf-8')
+        self.PoliceKillingUS = pd.read_csv('../datasets/PoliceKillingsUS.csv',encoding='utf-8')
+        self.PovertyUS = pd.read_csv('../datasets/PovertyUS.csv',encoding='utf-8')
         
         self.filter_by_date()
         self.naming_states()
@@ -28,7 +28,7 @@ class PreprocessData:
         self.poverty_averages()
         self.killing_averages()
         print(self.PoliceKillingFinal)
-        self.PoliceKillingFinal.to_csv('./datasets/ProcessedPoliceKillingUS.csv',index=False)
+        self.PoliceKillingFinal.to_csv('../processed_datasets/ProcessedPoliceKillingUS.csv',index=False)
     def filter_by_date(self):
 
         #Filter PoliceKilling Dataset
@@ -44,8 +44,8 @@ class PreprocessData:
         # print(self.FilteredPovertyUS)
 
     def save_to_csv(self):
-        self.FilteredPoliceKillingUS.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
-        self.FilteredPovertyUS.to_csv('./datasets/ProcessedPovertyUS.csv')
+        self.FilteredPoliceKillingUS.to_csv('../processed_datasets/ProcessedPoliceKillingUS.csv')
+        self.FilteredPovertyUS.to_csv('../processed_datasets/ProcessedPovertyUS.csv')
     
     def reduce_data_of_kills(self,df):
         # df = pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2015-12-31')])
@@ -93,7 +93,7 @@ class PreprocessData:
 
     def naming_states(self):
 
-        with open('us_states.json', 'r') as f:
+        with open('../datasets/us_states.json', 'r') as f:
             self.USStates = json.load(f)
 
         for name in self.PovertyUS['Name']:
@@ -115,7 +115,7 @@ class PreprocessData:
         self.PovertyUSFinal.rename(columns={'Name_2015': 'Name'}, inplace=True)
 
         
-        self.PovertyUSFinal.to_csv('./datasets/PovertyUS_Average_2015_2016.csv', index=False)
+        self.PovertyUSFinal.to_csv('../datasets/PovertyUS_Average_2015_2016.csv', index=False)
     def killing_averages(self):
         
         #print(kills_2015)
@@ -127,7 +127,7 @@ class PreprocessData:
         self.PoliceKillingFinalAvg = merged_data[['state','Avg Deaths','Avg Deaths in percentage']]
         #print(self.PoliceKillingFinal)
         self.PoliceKillingFinalAvg = self.PoliceKillingFinalAvg[self.PoliceKillingFinalAvg['state'] != 'US']
-        self.PoliceKillingFinalAvg.to_csv('./datasets/PolliceKillingUs_Average_2015_2016.csv', index=False)
+        self.PoliceKillingFinalAvg.to_csv('../datasets/PolliceKillingUs_Average_2015_2016.csv', index=False)
 
 
 
