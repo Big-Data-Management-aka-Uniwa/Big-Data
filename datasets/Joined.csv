@@ -1,52 +1,52 @@
-Unnamed: 0_x,state,count,name,date,manner_of_death,armed,age,gender,race,city,signs_of_mental_illness,threat_level,flee,body_camera,percentage,Unnamed: 0_y,Year,ID,Name,Poverty Universe,Number in Poverty,90% Confidence Interval,Percent in Poverty,90% Confidence Interval.1
-0,AK,11,Benjamin Zeckovic,2015-02-08,shot,gun,33.0,M,N,Anchorage,False,attack,Not fleeing,False,0.5629477993858751,262,2016,2000,AK,723955,71916,"67,813 to 76,019",9.9,9.3 to 10.5
-1,AL,42,A'Donte Washington,2015-02-20,shot,gun,38.0,M,W,Birmingham,False,attack,Not fleeing,False,2.1494370522006143,261,2016,1000,AL,4741355,814197,"796,927 to 831,467",17.2,16.8 to 17.6
-2,AR,20,Artago Damon Howard,2015-01-08,shot,gun,33.0,M,W,Benton,False,attack,Not fleeing,False,1.023541453428864,264,2016,5000,AR,2898653,497388,"485,180 to 509,596",17.2,16.8 to 17.6
-3,AZ,92,TK TK,2015-01-27,shot,gun,26.0,M,W,Phoenix,False,attack,Not fleeing,False,4.7082906857727735,263,2016,4000,AZ,6771106,1107153,"1,086,482 to 1,127,824",16.4,16.1 to 16.7
-4,CA,327,TK TK,2016-08-18,shot,gun,27.0,M,H,Los Angeles,False,attack,Not fleeing,False,16.734902763561923,265,2016,6000,CA,38513333,5527621,"5,475,835 to 5,579,407",14.4,14.3 to 14.5
-5,CO,60,Adrian Joseph Shaffer,2015-11-10,shot,gun,28.0,M,W,Denver,False,attack,Not fleeing,False,3.0706243602865912,266,2016,8000,CO,5420315,598378,"585,017 to 611,739",11.0,10.8 to 11.2
-6,CT,6,Christopher Anderson,2015-08-14,shot,knife,23.0,M,W,Bolton,False,attack,Not fleeing,False,0.3070624360286591,267,2016,9000,CT,3469517,342171,"330,966 to 353,376",9.9,9.6 to 10.2
-7,DC,9,Bobby Gross,2015-03-12,shot,gun,21.0,M,B,Washington,False,attack,Not fleeing,False,0.4605936540429887,269,2016,11000,DC,647652,119778,"113,591 to 125,965",18.5,17.5 to 19.5
-8,DE,4,Jeremy McDole,2015-03-08,shot,gun,25.0,M,W,Claymont,False,attack,Car,False,0.2047082906857728,268,2016,10000,DE,926860,109592,"104,742 to 114,442",11.8,11.3 to 12.3
-9,FL,120,Albert Joseph Davis,2015-02-04,shot,gun,22.0,M,W,Miami,False,attack,Not fleeing,False,6.141248720573183,270,2016,12000,FL,20191307,2986237,"2,947,397 to 3,025,077",14.8,14.6 to 15.0
-10,GA,55,Alexia Christian,2015-02-23,shot,gun,25.0,M,W,Atlanta,False,attack,Not fleeing,False,2.814738996929376,271,2016,13000,GA,10040187,1612368,"1,586,263 to 1,638,473",16.1,15.8 to 16.4
-11,HI,8,BJ Medeiros,2015-05-12,shot,gun,25.0,M,O,Hilo,False,attack,Not fleeing,False,0.4094165813715456,272,2016,15000,HI,1389436,132597,"125,573 to 139,621",9.5,9.0 to 10.0
-12,IA,10,Ali Eisa Abdalla Yahia,2015-01-06,shot,gun,28.0,M,W,Cedar Rapids,False,attack,Not fleeing,False,0.511770726714432,276,2016,19000,IA,3031272,354429,"345,224 to 363,634",11.7,11.4 to 12.0
-13,ID,13,Anthony Ray Bauer,2015-01-24,shot,gun,31.0,M,W,Boise,False,attack,Not fleeing,False,0.6653019447287616,273,2016,16000,ID,1652583,228037,"218,768 to 237,306",13.8,13.2 to 14.4
-14,IL,47,Alfonso Lopez,2015-04-02,shot,gun,27.0,M,B,Chicago,False,attack,Not fleeing,False,2.4053224155578303,274,2016,17000,IL,12502043,1620974,"1,595,624 to 1,646,324",13.0,12.8 to 13.2
-15,IN,33,Abraham Martinez,2015-01-15,shot,gun,29.0,M,W,Indianapolis,False,attack,Not fleeing,False,1.6888433981576252,275,2016,18000,IN,6432851,899168,"881,690 to 916,646",14.0,13.7 to 14.3
-16,KS,19,Andres Lara-Rodriguez,2015-01-03,shot,gun,38.0,M,W,Wichita,False,attack,Not fleeing,False,0.9723643807574206,277,2016,20000,KS,2825887,343773,"333,475 to 354,071",12.2,11.8 to 12.6
-17,KY,34,Brandon Stanley,2016-08-08,shot,gun,34.0,M,W,Louisville,False,attack,Not fleeing,False,1.7400204708290683,278,2016,21000,KY,4298981,782779,"766,290 to 799,268",18.2,17.8 to 18.6
-18,LA,46,Aaron Rutledge,2015-09-15,shot,gun,48.0,M,B,Baton Rouge,False,attack,Not fleeing,False,2.3541453428863868,279,2016,22000,LA,4546072,911970,"893,612 to 930,328",20.1,19.7 to 20.5
-19,MA,21,Angelo West,2015-03-27,shot,gun,33.0,M,W,Boston,False,attack,Not fleeing,False,1.0747185261003072,282,2016,25000,MA,6574253,688366,"672,883 to 703,849",10.5,10.3 to 10.7
-20,MD,30,Asshams Pharoah Manley,2016-03-31,shot,gun,19.0,M,B,Baltimore,False,attack,Not fleeing,False,1.5353121801432956,281,2016,24000,MD,5874987,572786,"559,536 to 586,036",9.7,9.5 to 9.9
-21,ME,4,Derek J. Sam,2015-02-09,shot,gun,23.0,M,W,Bangor,False,attack,Not fleeing,False,0.2047082906857728,280,2016,23000,ME,1295968,159523,"153,218 to 165,828",12.3,11.8 to 12.8
-22,MI,29,Alan James,2016-07-11,shot,gun,24.0,M,W,Detroit,False,attack,Not fleeing,False,1.4841351074718525,283,2016,26000,MI,9702326,1449683,"1,430,043 to 1,469,323",14.9,14.7 to 15.1
-23,MN,26,Adam Jo Klimek,2015-01-14,shot,gun,31.0,M,W,St. Paul,False,attack,Not fleeing,False,1.3306038894575232,284,2016,27000,MN,5396370,531789,"519,414 to 544,164",9.9,9.7 to 10.1
-24,MO,42,Aaron Marquis Ballard,2015-02-28,shot,gun,19.0,M,W,St. Louis,False,attack,Not fleeing,False,2.1494370522006143,286,2016,29000,MO,5911099,826358,"809,923 to 842,793",14.0,13.7 to 14.3
-25,MS,16,Antwun Shumpert,2015-02-15,shot,gun,37.0,M,W,Iuka,False,attack,Not fleeing,False,0.8188331627430911,285,2016,28000,MS,2892926,606873,"592,527 to 621,219",21.0,20.5 to 21.5
-26,MT,9,Andrew Blake,2015-01-08,shot,gun,20.0,M,W,Billings,False,attack,Not fleeing,False,0.4605936540429887,287,2016,30000,MT,1018115,136439,"130,979 to 141,899",13.4,12.9 to 13.9
-27,NC,56,Daquan Antonio Westbrook,2016-05-29,shot,gun,18.0,M,W,Charlotte,False,attack,Not fleeing,False,2.865916069600819,294,2016,37000,NC,9885985,1523034,"1,498,821 to 1,547,247",15.4,15.2 to 15.6
-28,ND,2,James Scott,2015-06-16,shot,gun,31.0,M,N,Bismarck,False,attack,Foot,False,0.1023541453428864,295,2016,38000,ND,731713,76951,"72,578 to 81,324",10.5,9.9 to 11.1
-29,NE,15,Austin M. Baier,2015-01-27,shot,gun,39.0,M,W,Omaha,False,attack,Not fleeing,False,0.7676560900716478,288,2016,31000,NE,1851082,208864,"201,705 to 216,023",11.3,10.9 to 11.7
-30,NH,5,Andrew Toto,2015-01-21,shot,gun,19.0,M,W,Bath,True,other,Not fleeing,False,0.255885363357216,290,2016,33000,NH,1292241,97753,"92,007 to 103,499",7.6,7.2 to 8.0
-31,NJ,27,Daniel Wolfe,2016-09-30,shot,gun,18.0,M,B,Newark,False,attack,Not fleeing,False,1.3817809621289665,291,2016,34000,NJ,8769466,915390,"895,106 to 935,674",10.4,10.2 to 10.6
-32,NM,41,Alan Huberth Franco-Armenta,2015-07-31,shot,gun,36.0,M,H,Albuquerque,False,attack,Not fleeing,False,2.0982599795291708,292,2016,35000,NM,2039432,390461,"380,077 to 400,845",19.1,18.6 to 19.6
-33,NV,33,Abel Correa,2015-12-14,shot,gun,22.0,M,W,Las Vegas,False,attack,Not fleeing,False,1.6888433981576252,289,2016,32000,NV,2896890,407308,"394,452 to 420,164",14.1,13.7 to 14.5
-34,NY,36,Carl Baranishyn,2016-04-17,shot,gun,51.0,M,B,New York,False,attack,Not fleeing,False,1.842374616171955,293,2016,36000,NY,19230203,2843954,"2,812,221 to 2,875,687",14.8,14.6 to 15.0
-35,OH,55,Abdul Razak Ali Artan,2015-06-09,shot,gun,22.0,M,W,Columbus,False,attack,Not fleeing,False,2.814738996929376,296,2016,39000,OH,11287358,1639636,"1,614,177 to 1,665,095",14.5,14.3 to 14.7
-36,OK,58,Andre Dontrell Williams,2016-12-21,shot,gun,42.0,M,W,Oklahoma City,False,attack,Not fleeing,False,2.968270214943705,297,2016,40000,OK,3809426,615050,"603,867 to 626,233",16.1,15.8 to 16.4
-37,OR,30,Adam Karjalainen,2015-07-01,shot,gun,55.0,M,W,Portland,False,attack,Not fleeing,False,1.5353121801432956,298,2016,41000,OR,4016515,538169,"524,488 to 551,850",13.4,13.1 to 13.7
-38,PA,40,Andrew Jospeh Todd,2015-01-06,shot,gun,20.0,M,B,Philadelphia,False,attack,Not fleeing,False,2.047082906857728,299,2016,42000,PA,12368248,1589584,"1,565,866 to 1,613,302",12.9,12.7 to 13.1
-39,RI,2,Dominique Silva,2016-03-24,shot,gun,24.0,M,B,Pawtucket,False,attack,Car,False,0.1023541453428864,300,2016,44000,RI,1015893,134683,"128,893 to 140,473",13.3,12.7 to 13.9
-40,SC,36,Alexander Chance Partain,2015-05-21,shot,gun,32.0,M,W,North Charleston,False,attack,Not fleeing,False,1.842374616171955,301,2016,45000,SC,4820435,739574,"723,077 to 756,071",15.3,15.0 to 15.6
-41,SD,7,Abraham Mitchell Fryer,2015-09-04,shot,gun,37.0,M,W,Rapid City,False,attack,Not fleeing,False,0.3582395087001023,302,2016,46000,SD,837301,107953,"103,265 to 112,641",12.9,12.3 to 13.5
-42,TN,42,Alexander Tirado Rivera,2015-08-26,shot,gun,32.0,M,W,Memphis,False,attack,Not fleeing,False,2.1494370522006143,303,2016,47000,TN,6489044,1023825,"1,005,630 to 1,042,020",15.8,15.5 to 16.1
-43,TX,180,TK TK,2015-07-07,shot,gun,24.0,M,W,Houston,False,attack,Not fleeing,False,9.211873080859776,304,2016,48000,TX,27236431,4261291,"4,214,422 to 4,308,160",15.6,15.4 to 15.8
-44,UT,18,Benjamin William Heaton,2015-01-08,shot,gun,31.0,M,W,Salt Lake City,False,attack,Not fleeing,False,0.9211873080859776,305,2016,49000,UT,3004151,307270,"295,740 to 318,800",10.2,9.8 to 10.6
-45,VA,35,Alfredo Rials-Torres,2015-09-05,shot,gun,18.0,M,B,Norfolk,False,attack,Not fleeing,False,1.791197543500512,307,2016,51000,VA,8158203,897244,"877,329 to 917,159",11.0,10.8 to 11.2
-46,VT,3,Jesse Beshaw,2015-12-22,shot,gun,29.0,M,W,Burlington,False,attack,Not fleeing,True,0.1535312180143295,306,2016,50000,VT,600079,67825,"64,114 to 71,536",11.3,10.7 to 11.9
-47,WA,42,Amy Jean McCoy,2015-01-02,shot,gun,38.0,M,W,Seattle,False,attack,Not fleeing,False,2.1494370522006143,308,2016,53000,WA,7156291,808582,"791,428 to 825,736",11.3,11.1 to 11.5
-48,WI,28,Aaron Siler,2015-02-24,shot,gun,25.0,M,W,Milwaukee,False,attack,Not fleeing,False,1.4329580348004094,310,2016,55000,WI,5628526,661465,"647,308 to 675,622",11.8,11.5 to 12.1
-49,WV,22,Bernard Cottrell,2015-03-14,shot,gun,26.0,M,W,Morgantown,False,attack,Not fleeing,False,1.1258955987717505,309,2016,54000,WV,1779953,318368,"309,231 to 327,505",17.9,17.4 to 18.4
-50,WY,8,Christopher Benton,2015-05-20,shot,gun,39.0,M,W,Casper,False,attack,Not fleeing,False,0.4094165813715456,311,2016,56000,WY,571196,62416,"58,628 to 66,204",10.9,10.2 to 11.6
+state,count,date,manner_of_death,armed,age,gender,race,city,signs_of_mental_illness,threat_level,flee,body_camera,percentage,Unnamed: 0,Year,ID,Name,Poverty Universe,Number in Poverty,90% Confidence Interval,Percent in Poverty,90% Confidence Interval.1
+AK,4.0,2015.0,shot,gun,33.0,M,N,Fairbanks,False,attack,Car,False,0.4036326942482341,210,2015,2000,AK,720764,74941,"71,399 to 78,483",10.4,9.9 to 10.9
+AL,17.0,2015.0,shot,gun,36.0,M,W,Arab,False,attack,Not fleeing,False,1.7154389505549947,209,2015,1000,AL,4736374,875853,"859,781 to 891,925",18.5,18.2 to 18.8
+AR,5.0,2015.0,shot,gun,31.0,M,W,Cabot,False,attack,Not fleeing,False,0.5045408678102926,212,2015,5000,AR,2887336,540733,"528,756 to 552,710",18.7,18.3 to 19.1
+AZ,42.0,2015.0,shot,gun,28.0,M,W,Phoenix,False,attack,Not fleeing,False,4.238143289606458,211,2015,4000,AZ,6671708,1159046,"1,136,666 to 1,181,426",17.4,17.1 to 17.7
+CA,189.0,2015.0,shot,gun,27.0,M,H,Los Angeles,False,attack,Not fleeing,False,19.071644803229063,213,2015,6000,CA,38398077,5896255,"5,844,717 to 5,947,793",15.4,15.3 to 15.5
+CO,29.0,2015.0,shot,gun,17.0,M,W,Aurora,False,attack,Not fleeing,False,2.9263370332996974,214,2015,8000,CO,5339619,614410,"599,548 to 629,272",11.5,11.2 to 11.8
+CT,2.0,2015.0,shot,box cutter,31.0,M,W,Bolton,False,attack,Car,False,0.201816347124117,215,2015,9000,CT,3480915,367867,"356,084 to 379,650",10.6,10.3 to 10.9
+DC,4.0,2015.0,shot,gun,21.0,M,B,Washington,False,attack,Not fleeing,False,0.4036326942482341,217,2015,11000,DC,638024,113185,"107,315 to 119,055",17.7,16.8 to 18.6
+DE,3.0,2015.0,shot,gun,28.0,M,W,Claymont,False,attack,Not fleeing,False,0.3027245206861755,216,2015,10000,DE,920351,115655,"110,138 to 121,172",12.6,12.0 to 13.2
+FL,60.0,2015.0,shot,gun,28.0,M,B,Miami,False,attack,Not fleeing,False,6.054490413723512,218,2015,12000,FL,19850025,3129061,"3,091,403 to 3,166,719",15.8,15.6 to 16.0
+GA,29.0,2015.0,shot,gun,25.0,M,W,Atlanta,False,attack,Not fleeing,False,2.9263370332996974,219,2015,13000,GA,9943136,1705831,"1,680,084 to 1,731,578",17.2,16.9 to 17.5
+HI,2.0,2015.0,shot,gun,39.0,M,B,Honolulu,False,attack,Not fleeing,False,0.201816347124117,220,2015,15000,HI,1394130,149091,"143,298 to 154,884",10.7,10.3 to 11.1
+IA,5.0,2015.0,shot,gun,21.0,M,W,Des Moines,False,attack,Car,False,0.5045408678102926,224,2015,19000,IA,3021824,366453,"356,824 to 376,082",12.1,11.8 to 12.4
+ID,7.0,2015.0,shot,gun,31.0,M,W,Boise,False,attack,Not fleeing,False,0.7063572149344097,221,2015,16000,ID,1622106,238646,"229,473 to 247,819",14.7,14.1 to 15.3
+IL,21.0,2015.0,shot,gun,27.0,M,B,Chicago,False,attack,Not fleeing,False,2.119071644803229,222,2015,17000,IL,12559451,1702210,"1,676,981 to 1,727,439",13.6,13.4 to 13.8
+IN,19.0,2015.0,shot,gun,29.0,M,W,Indianapolis,False,attack,Not fleeing,False,1.917255297679112,223,2015,18000,IN,6417433,924428,"906,481 to 942,375",14.4,14.1 to 14.7
+KS,9.0,2015.0,shot,gun,21.0,M,W,Kansas City,False,attack,Not fleeing,False,0.9081735620585268,225,2015,20000,KS,2830955,366069,"355,837 to 376,301",12.9,12.5 to 13.3
+KY,16.0,2015.0,shot,gun,53.0,M,W,Louisville,False,attack,Not fleeing,False,1.6145307769929365,226,2015,21000,KY,4290011,786345,"770,810 to 801,880",18.3,17.9 to 18.7
+LA,27.0,2015.0,shot,gun,33.0,M,B,New Orleans,False,attack,Not fleeing,False,2.7245206861755804,227,2015,22000,LA,4541708,885846,"868,463 to 903,229",19.5,19.1 to 19.9
+MA,9.0,2015.0,shot,knife,49.0,M,W,Boston,False,attack,Not fleeing,False,0.9081735620585268,230,2015,25000,MA,6558724,752453,"735,323 to 769,583",11.5,11.2 to 11.8
+MD,15.0,2015.0,shot,vehicle,19.0,M,B,Baltimore,False,other,Not fleeing,False,1.513622603430878,229,2015,24000,MD,5863287,583369,"568,336 to 598,402",9.9,9.6 to 10.2
+ME,2.0,2015.0,shot,gun,23.0,M,W,Bangor,False,attack,Foot,False,0.201816347124117,228,2015,23000,ME,1292986,171266,"164,985 to 177,547",13.2,12.7 to 13.7
+MI,16.0,2015.0,shot,gun,17.0,M,W,Detroit,False,attack,Not fleeing,False,1.6145307769929365,231,2015,26000,MI,9698423,1524330,"1,502,565 to 1,546,095",15.7,15.5 to 15.9
+MN,12.0,2015.0,shot,gun,24.0,M,W,St. Paul,False,attack,Not fleeing,False,1.2108980827447022,232,2015,27000,MN,5366578,546499,"534,759 to 558,239",10.2,10.0 to 10.4
+MO,21.0,2015.0,shot,gun,23.0,M,W,St. Louis,False,attack,Not fleeing,False,2.119071644803229,234,2015,29000,MO,5901975,875704,"859,879 to 891,529",14.8,14.5 to 15.1
+MS,8.0,2015.0,shot,gun,49.0,M,W,Barton,False,attack,Not fleeing,False,0.8072653884964682,233,2015,28000,MS,2896612,638919,"624,971 to 652,867",22.1,21.6 to 22.6
+MT,4.0,2015.0,shot,gun,22.0,M,W,Billings,False,attack,Not fleeing,False,0.4036326942482341,235,2015,30000,MT,1007722,144634,"139,500 to 149,768",14.4,13.9 to 14.9
+NC,23.0,2015.0,shot,gun,18.0,M,W,Gastonia,False,attack,Not fleeing,False,2.320887991927346,242,2015,37000,NC,9790028,1607249,"1,584,462 to 1,630,036",16.4,16.2 to 16.6
+ND,1.0,2015.0,shot,gun,31.0,M,N,Wood Lake,False,attack,Not fleeing,False,0.1009081735620585,243,2015,38000,ND,731319,78613,"74,610 to 82,616",10.7,10.2 to 11.2
+NE,8.0,2015.0,shot,gun,39.0,M,W,Omaha,False,attack,Not fleeing,False,0.8072653884964682,236,2015,31000,NE,1842687,224696,"217,304 to 232,088",12.2,11.8 to 12.6
+NH,3.0,2015.0,shot,knife,23.0,M,W,Bath,True,other,Not fleeing,False,0.3027245206861755,238,2015,33000,NH,1288048,108293,"102,000 to 114,586",8.4,7.9 to 8.9
+NJ,15.0,2015.0,shot,knife,24.0,M,W,Camden,False,attack,Not fleeing,False,1.513622603430878,239,2015,34000,NJ,8781579,945989,"926,421 to 965,557",10.8,10.6 to 11.0
+NM,20.0,2015.0,shot,gun,34.0,M,H,Albuquerque,False,attack,Not fleeing,False,2.0181634712411705,240,2015,35000,NM,2044455,405364,"394,894 to 415,834",19.8,19.3 to 20.3
+NV,19.0,2015.0,shot,gun,36.0,M,W,Las Vegas,False,attack,Not fleeing,False,1.917255297679112,237,2015,32000,NV,2850466,424824,"412,817 to 436,831",14.9,14.5 to 15.3
+NY,19.0,2015.0,shot,gun,38.0,M,W,Queens,False,attack,Not fleeing,False,1.917255297679112,241,2015,36000,NY,19283863,2985604,"2,951,419 to 3,019,789",15.5,15.3 to 15.7
+OH,29.0,2015.0,shot,gun,22.0,M,W,Columbus,False,attack,Not fleeing,False,2.9263370332996974,244,2015,39000,OH,11295380,1670487,"1,646,455 to 1,694,519",14.8,14.6 to 15.0
+OK,32.0,2015.0,shot,gun,20.0,M,W,Oklahoma City,False,attack,Not fleeing,False,3.229061553985873,245,2015,40000,OK,3795734,608507,"597,199 to 619,815",16.0,15.7 to 16.3
+OR,15.0,2015.0,shot,gun,49.0,M,W,Portland,False,attack,Not fleeing,False,1.513622603430878,246,2015,41000,OR,3952049,601626,"586,548 to 616,704",15.2,14.8 to 15.6
+PA,18.0,2015.0,shot,gun,20.0,M,B,Allentown,False,attack,Not fleeing,False,1.8163471241170532,247,2015,42000,PA,12385763,1624991,"1,600,900 to 1,649,082",13.1,12.9 to 13.3
+RI,0.0,0.0,0,0,0.0,0,0,0,0,0,0,0,0.0,248,2015,44000,RI,1016344,143724,"137,706 to 149,742",14.1,13.5 to 14.7
+SC,19.0,2015.0,shot,gun,24.0,M,W,Irmo,False,attack,Not fleeing,False,1.917255297679112,249,2015,45000,SC,4750107,796609,"779,482 to 813,736",16.8,16.4 to 17.2
+SD,3.0,2015.0,shot,gun,31.0,M,W,Lead,True,attack,Not fleeing,False,0.3027245206861755,250,2015,46000,SD,829616,111697,"106,789 to 116,605",13.5,12.9 to 14.1
+TN,20.0,2015.0,shot,gun,24.0,M,W,Chattanooga,False,attack,Not fleeing,False,2.0181634712411705,251,2015,47000,TN,6440331,1077866,"1,057,666 to 1,098,066",16.7,16.4 to 17.0
+TX,98.0,2015.0,shot,gun,31.0,M,W,Houston,False,attack,Not fleeing,False,9.889001009081737,252,2015,48000,TX,26846185,4255690,"4,207,517 to 4,303,863",15.9,15.7 to 16.1
+UT,10.0,2015.0,shot,gun,24.0,M,W,Salt Lake City,False,attack,Not fleeing,False,1.0090817356205852,253,2015,49000,UT,2947857,331233,"320,622 to 341,844",11.2,10.8 to 11.6
+VA,18.0,2015.0,shot,gun,23.0,M,B,Portsmouth,False,attack,Not fleeing,False,1.8163471241170532,255,2015,51000,VA,8131331,914226,"895,213 to 933,239",11.2,11.0 to 11.4
+VT,1.0,2015.0,shot,gun,56.0,M,W,Burlington,False,attack,Not fleeing,True,0.1009081735620585,254,2015,50000,VT,600659,62643,"59,418 to 65,868",10.4,9.9 to 10.9
+WA,16.0,2015.0,shot,gun,35.0,M,W,Seattle,True,attack,Not fleeing,False,1.6145307769929365,256,2015,53000,WA,7036738,860734,"842,651 to 878,817",12.2,11.9 to 12.5
+WI,11.0,2015.0,shot,gun,25.0,M,W,Ashwaubenon,False,attack,Not fleeing,False,1.109989909182644,258,2015,55000,WI,5620187,679937,"666,924 to 692,950",12.1,11.9 to 12.3
+WV,10.0,2015.0,shot,gun,33.0,M,W,Morgantown,False,attack,Not fleeing,False,1.0090817356205852,257,2015,54000,WV,1793098,322589,"313,401 to 331,777",18.0,17.5 to 18.5
+WY,6.0,2015.0,shot,gun,39.0,M,W,Casper,False,attack,Not fleeing,False,0.6054490413723511,259,2015,56000,WY,572327,60787,"56,709 to 64,865",10.6,9.9 to 11.3

@@ -9,21 +9,26 @@ class Clustering:
 
     def __init__(self):
         self.PoliceKillingUS = pd.read_csv('./datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8')
-        self.PoliceKillingUS = self.PoliceKillingUS[(self.PoliceKillingUS['date'] >= '2015-01-01') & (self.PoliceKillingUS['date'] <= '2016-12-31')]
-
+        #self.PoliceKillingUS = pd.read_csv('./datasets/PolliceKillingUs_Average_2015_2016.csv', encoding='utf-8')
+        self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]
+        # self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016]
+        
         self.PovertyUS = pd.read_csv('./datasets/ProcessedPovertyUS.csv', encoding='utf-8')
-        #self.PovertyUS = self.PovertyUS[(self.PovertyUS['Year'] == 2015)]
-        self.PovertyUS = self.PovertyUS[(self.PovertyUS['Year'] == 2016)]
+        #self.PovertyUS = pd.read_csv('./datasets/PovertyUS_Average_2015_2016.csv', encoding='utf-8')
+        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]
+        # self.PovertyUS = self.PovertyUS[(self.PovertyUS['Year'] == 2016)]
 
-        self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='inner')
+        self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='outer')
+        self.Joined.fillna(0,inplace=True)
+        self.Joined.loc[self.Joined['state'] == 0, 'state'] = self.Joined.loc[self.Joined['state'] == 0, 'Name']
         self.Joined.to_csv('./datasets/Joined.csv', index=False)
 
-        
+        print(self.Joined)
         self.X = self.Joined[['Percent in Poverty', 'percentage']]  # get the collumns that we want to correlate
-
+        #self.X = self.Joined[['Percent in Poverty Avg', 'Avg Deaths in percentage']]  # get the collumns that we want to correlate
         # Normalization data
-        xV1 = zscore(self.X.iloc[:,0]) #κανονικοποίηση
-        xV2 = zscore(self.X.iloc[:,1]) #κανονικοποίηση
+        xV1 = zscore(self.X.iloc[:,0])
+        xV2 = zscore(self.X.iloc[:,1]) 
         self.X = np.transpose(np.array([xV1,xV2])) 
 
         # Ask for the number of clusters

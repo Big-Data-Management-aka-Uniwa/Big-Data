@@ -20,17 +20,15 @@ class PreprocessData:
         
         self.filter_by_date()
         self.naming_states()
+        self.FilteredPovertyUS = self.FilteredPovertyUS[self.FilteredPovertyUS['Name'] != 'US']
         self.save_to_csv()
         self.PoliceKillingFinal2015 = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2015-12-31')]))
         self.PoliceKillingFinal2016 = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2016-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2016-12-31')]))
-        self.PoliceKillingFinal = self.reduce_data_of_kills(pd.DataFrame(self.FilteredPoliceKillingUS[(self.FilteredPoliceKillingUS['date'] >= '2015-01-01')& (self.FilteredPoliceKillingUS['date'] <= '2016-12-31')]))
-        self.PoliceKillingFinal.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
-        #self.PoliceKillingFinal2015.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
-        #self.PoliceKillingFinal2016.to_csv('./datasets/ProcessedPoliceKillingUS.csv')
-        print(self.PoliceKillingFinal2015)
-        print(self.PoliceKillingFinal2016)
-
-
+        self.PoliceKillingFinal = pd.concat([self.PoliceKillingFinal2015,self.PoliceKillingFinal2016], ignore_index=True)
+        self.poverty_averages()
+        self.killing_averages()
+        print(self.PoliceKillingFinal)
+        self.PoliceKillingFinal.to_csv('./datasets/ProcessedPoliceKillingUS.csv',index=False)
     def filter_by_date(self):
 
         #Filter PoliceKilling Dataset
@@ -57,8 +55,8 @@ class PreprocessData:
         #finds most frequest row for every state using most_frequest function
         summary = grouped.agg({ 
             'id': 'count', #counts the kills for this state
-            'name': PreprocessData.most_frequent,
-            'date': PreprocessData.most_frequent,
+            # 'name': PreprocessData.most_frequent,
+            'date': lambda x: PreprocessData.most_frequent(x.dt.year),
             'manner_of_death': PreprocessData.most_frequent,
             'armed': PreprocessData.most_frequent,
             'age': PreprocessData.most_frequent,
@@ -75,11 +73,13 @@ class PreprocessData:
         summary = summary.rename(columns={'id': 'count'}) 
         
         
+       
+        # Reset index to make 'state' a column
+        summary = summary.reset_index()
+
         total_kills = df.shape[0] #get x dimension
         summary['percentage'] = (summary['count'] / total_kills) * 100
 
-        # Reset index to make 'state' a column
-        summary = summary.reset_index()
 
         #print(summary)
         return summary
@@ -88,7 +88,8 @@ class PreprocessData:
     @staticmethod
     def most_frequent(series):
         #print(series)
-        return series.mode().iloc[0] 
+        return series.mode().iloc[0]
+    
 
     def naming_states(self):
 
@@ -99,11 +100,34 @@ class PreprocessData:
             if name in self.USStates:
                 self.FilteredPovertyUS['Name'] = self.FilteredPovertyUS['Name'].replace(name, self.USStates[name])
 
+    def poverty_averages(self):
+        poverty_2015 = self.FilteredPovertyUS[self.FilteredPovertyUS['Year'] == 2015]
+        poverty_2016 = self.FilteredPovertyUS[self.FilteredPovertyUS['Year'] == 2016]
+        merged_data = pd.merge(poverty_2015, poverty_2016, on='ID', suffixes=('_2015', '_2016'))
+        #print(merged_data)
+       
+        merged_data['Poverty Universe Avg'] = (merged_data['Poverty Universe_2015'] + merged_data['Poverty Universe_2016']) / 2
+        merged_data['Number in Poverty Avg'] = (merged_data['Number in Poverty_2015'] + merged_data['Number in Poverty_2016']) / 2
+        merged_data['Percent in Poverty Avg'] = (merged_data['Percent in Poverty_2015'] + merged_data['Percent in Poverty_2016']) / 2
 
-                    
-
-                    
         
+        self.PovertyUSFinal = merged_data[['ID', 'Name_2015', 'Poverty Universe Avg', 'Number in Poverty Avg', 'Percent in Poverty Avg']]
+        self.PovertyUSFinal.rename(columns={'Name_2015': 'Name'}, inplace=True)
+
+        
+        self.PovertyUSFinal.to_csv('./datasets/PovertyUS_Average_2015_2016.csv', index=False)
+    def killing_averages(self):
+        
+        #print(kills_2015)
+        merged_data = pd.merge(self.PoliceKillingFinal2015, self.PoliceKillingFinal2016, on='state', suffixes=('_2015', '_2016'), how='outer')
+        print(merged_data)
+        merged_data['Avg Deaths'] = (merged_data['count_2015'].fillna(0) + merged_data['count_2016'].fillna(0)) / 2
+        merged_data['Avg Deaths in percentage'] = (merged_data['percentage_2015'].fillna(0) + merged_data['percentage_2016'].fillna(0)) / 2         
+        #print(merged_data)
+        self.PoliceKillingFinalAvg = merged_data[['state','Avg Deaths','Avg Deaths in percentage']]
+        #print(self.PoliceKillingFinal)
+        self.PoliceKillingFinalAvg = self.PoliceKillingFinalAvg[self.PoliceKillingFinalAvg['state'] != 'US']
+        self.PoliceKillingFinalAvg.to_csv('./datasets/PolliceKillingUs_Average_2015_2016.csv', index=False)
 
 
 
