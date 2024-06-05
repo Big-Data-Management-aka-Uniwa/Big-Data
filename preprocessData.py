@@ -3,7 +3,6 @@ import pandas as pd
 
 class PreprocessData:
 
-    # Class variables to store datasets and intermediate processed data
     PoliceKillingUS = None
     PovertyUS = None
     PopulationUS = None
@@ -158,6 +157,7 @@ class PreprocessData:
     def killing_averages(self):
         # [Step 8.1] Merge the datasets for 2015 and 2016 police killings
         merged_data = pd.merge(self.PoliceKillingFinal2015, self.PoliceKillingFinal2016, on='state', suffixes=('_2015', '_2016'), how='outer')
+        print(merged_data)
 
         # [Step 8.2] Calculate average values for the required columns
         merged_data['Avg Deaths'] = (merged_data['count_2015'].fillna(0) + merged_data['count_2016'].fillna(0)) / 2
