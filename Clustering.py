@@ -30,14 +30,16 @@ class Clustering:
         # [Step 3] Create log-transformed columns for poverty and killings
         self.Joined['Log Poverty'] = np.log1p(self.Joined['Number in Poverty'])
         self.Joined['Log Killings'] = np.log1p(self.Joined['count'])
+        self.Joined['Log Population'] = np.log1p(self.Joined['Total_Population'])
         
         # [Step 4] Select the features for clustering
-        self.X = self.Joined[['Log Poverty', 'Log Killings']]
+        self.X = self.Joined[['Log Poverty', 'Log Killings', 'Log Population']]
         
         # [Step 5] Normalize the data using z-score normalization
         xV1 = zscore(self.X.iloc[:, 0])
         xV2 = zscore(self.X.iloc[:, 1])
-        self.X = np.transpose(np.array([xV1, xV2]))
+        xV3 = zscore(self.X.iloc[:, 2])
+        self.X = np.transpose(np.array([xV1, xV2, xV3]))
 
         # [Step 6] Determine the number of clusters
         numberOfRows, numberOfColumns = self.X.shape
@@ -50,7 +52,7 @@ class Clustering:
 
         # [Step 8] Plotting the data points and clusters
         plt.figure(1)
-        plt.scatter(self.X[:, 0], self.X[:, 1])  # Plot all data without clustering
+        plt.scatter(self.X[:, 0], self.X[:, 1], self.X[:, 2])  # Plot all data without clustering
         plt.title("Clustering Data")
         plt.show()
 
