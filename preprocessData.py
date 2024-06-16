@@ -7,6 +7,7 @@ class PreprocessData:
     PovertyUS = None
     PopulationUS = None
     USStates = None
+    FilteredPopulationUS = None
     FilteredPoliceKillingUS = None
     FilteredPovertyUS = None
 
@@ -22,7 +23,7 @@ class PreprocessData:
         # [Step 1] Store the 3 datasets as DataFrame Objects 
         self.PoliceKillingUS = pd.read_csv('./datasets/PoliceKillingsUS.csv', encoding='utf-8')
         self.PovertyUS = pd.read_csv('./datasets/PovertyUS.csv', encoding='utf-8')
-        #self.PopulationUS = pd.read_csv('./datasets/PopulationUS_2015.csv', encoding='utf-8')
+        self.PopulationUS = pd.read_csv('./datasets/PopulationUS_2015.csv', encoding='latin1', delimiter=';')
         
         # [Step 2] Filter the dates of PoliceKilling & PovertyUS datasets (Keep only 2015-2016 data) 
         self.filter_by_date()
@@ -30,6 +31,8 @@ class PreprocessData:
         # [Step 3] Change the name of US States from full name to 2-letter name (eg. California --> CA)
         self.rename_states()
         self.FilteredPovertyUS = self.FilteredPovertyUS[self.FilteredPovertyUS['Name'] != 'US']
+
+        self.calculate_population()
         
         # [Step 4] Save the Processed datasets to different .csv files
         self.save_to_csv()
@@ -78,6 +81,16 @@ class PreprocessData:
         for name in self.PovertyUS['Name']:
             if name in self.USStates:
                 self.FilteredPovertyUS['Name'] = self.FilteredPovertyUS['Name'].replace(name, self.USStates[name])
+    
+    """
+        Calculate each US state's population 
+    """
+    def calculate_population(self):
+        # Group by 'State' and sum 'Total_Population'
+        self.FilteredPopulationUS = self.PopulationUS.groupby('State')['Total_Population'].sum()
+
+        # Convert the Series to a DataFrame
+        self.FilteredPopulationUS = self.FilteredPopulationUS.reset_index()
 
     """
         Save Processed Datasets to .csv  
@@ -86,6 +99,7 @@ class PreprocessData:
         # [Step 4.1] Save the processed datasets to .csv files
         self.FilteredPoliceKillingUS.to_csv('./processed_datasets/ProcessedPoliceKillingUS.csv')
         self.FilteredPovertyUS.to_csv('./processed_datasets/ProcessedPovertyUS.csv')
+        self.FilteredPopulationUS.to_csv('./processed_datasets/ProcessedPopulationUS_2015.csv')
     
     """
         Reduce the data of kills 
