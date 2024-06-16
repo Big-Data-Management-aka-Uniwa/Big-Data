@@ -60,7 +60,9 @@ class Clustering:
 
         # [Step 8] Plotting the data points and clusters
         plt.figure(1)
+         # -- ΑΛΛΑΓΗ 5 --
         plt.scatter(self.X[:, 0], self.X[:, 1], c=IDX)  # Plot all data without clustering
+        # ----------------
         plt.title("Clustering Data")
         plt.show()
 
