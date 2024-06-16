@@ -18,8 +18,11 @@ class Clustering:
         self.PovertyUS = pd.read_csv('./processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
         self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2016]  # Filter for 2016 data
 
+        self.PopulationUS = pd.read_csv('./processed_datasets/ProcessedPopulationUS_2015.csv', encoding='latin1')
+
         # [Step 2] Merge the datasets on 'state' and 'Name'
         self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='outer')
+        self.Joined = pd.merge(self.Joined, self.PopulationUS, left_on='state', right_on='State', how='outer')
         self.Joined.fillna(0, inplace=True)  # Replace missing values with 0
         self.Joined.loc[self.Joined['state'] == 0, 'state'] = self.Joined.loc[self.Joined['state'] == 0, 'Name']  # Replace missing state names
         self.Joined.to_csv('./Joined.csv', index=False)  # Save the joined dataset for reference
