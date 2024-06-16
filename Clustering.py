@@ -22,7 +22,9 @@ class Clustering:
 
         # [Step 2] Merge the datasets on 'state' and 'Name'
         self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='outer')
+        # -- ΑΛΛΑΓΗ 1 --
         self.Joined = pd.merge(self.Joined, self.PopulationUS, left_on='state', right_on='State', how='outer')
+        # ----------------
         self.Joined.fillna(0, inplace=True)  # Replace missing values with 0
         self.Joined.loc[self.Joined['state'] == 0, 'state'] = self.Joined.loc[self.Joined['state'] == 0, 'Name']  # Replace missing state names
         self.Joined.to_csv('./Joined.csv', index=False)  # Save the joined dataset for reference
@@ -30,16 +32,22 @@ class Clustering:
         # [Step 3] Create log-transformed columns for poverty and killings
         self.Joined['Log Poverty'] = np.log1p(self.Joined['Number in Poverty'])
         self.Joined['Log Killings'] = np.log1p(self.Joined['count'])
+        # -- ΑΛΛΑΓΗ 2 --
         self.Joined['Log Population'] = np.log1p(self.Joined['Total_Population'])
-        
+        # ----------------
+
         # [Step 4] Select the features for clustering
+        # -- ΑΛΛΑΓΗ 3 --
         self.X = self.Joined[['Log Poverty', 'Log Killings', 'Log Population']]
         
+
         # [Step 5] Normalize the data using z-score normalization
         xV1 = zscore(self.X.iloc[:, 0])
         xV2 = zscore(self.X.iloc[:, 1])
+        # -- ΑΛΛΑΓΗ 4 --
         xV3 = zscore(self.X.iloc[:, 2])
         self.X = np.transpose(np.array([xV1, xV2, xV3]))
+        # ----------------
 
         # [Step 6] Determine the number of clusters
         numberOfRows, numberOfColumns = self.X.shape
@@ -52,7 +60,7 @@ class Clustering:
 
         # [Step 8] Plotting the data points and clusters
         plt.figure(1)
-        plt.scatter(self.X[:, 0], self.X[:, 1], self.X[:, 2])  # Plot all data without clustering
+        plt.scatter(self.X[:, 0], self.X[:, 1], c=IDX)  # Plot all data without clustering
         plt.title("Clustering Data")
         plt.show()
 
