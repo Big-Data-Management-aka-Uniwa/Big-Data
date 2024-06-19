@@ -18,14 +18,14 @@ class Clustering:
         # Τα αρχεία με κατάληξη Avg_2015_2016 έχουν τα ποσοστα σε φώχια και φόνων σε μέσο όρο των ετων 2015-2016
         
         # [Step 1] Load the processed datasets
-        #self.PoliceKillingUS = pd.read_csv('./processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
-        self.PoliceKillingUS = pd.read_csv('./datasets/PolliceKillingUS_Avg_2015_2016.csv', encoding='utf-8') #ποσοστά συνδιασμός ετών 2015-2016
-        # self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]  # Filter for 2015 
+        self.PoliceKillingUS = pd.read_csv('./processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
+        #self.PoliceKillingUS = pd.read_csv('./datasets/PolliceKillingUS_Avg_2015_2016.csv', encoding='utf-8') #ποσοστά συνδιασμός ετών 2015-2016
+        self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]  # Filter for 2015 
         # self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016]  # Filter for 2016 .Εδώ comment out και βάζεις σε comment το 2015
         
-        #self.PovertyUS = pd.read_csv('./processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
-        self.PovertyUS = pd.read_csv('./datasets/PovertyUS_Avg_2015_2016.csv', encoding='utf-8')
-        # self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]  # Filter for 2016 data
+        self.PovertyUS = pd.read_csv('./processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
+        #self.PovertyUS = pd.read_csv('./datasets/PovertyUS_Avg_2015_2016.csv', encoding='utf-8')
+        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]  # Filter for 2016 data
         # self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2016]  # Filter for 2016 data.Εδώ comment out και βάζεις σε comment το 2015
 
         # [Step 2] Merge the datasets on 'state' and 'Name'
@@ -35,8 +35,11 @@ class Clustering:
         self.Joined.to_csv('./Joined.csv', index=False)  # Save the joined dataset for reference
 
         # [Step 3] Create log-transformed columns for poverty and killings
-        self.Joined['Log Poverty'] = self.Joined['Percent in Poverty Avg'] # Ποσοστά σε φτώχια
-        self.Joined['Log Killings'] = self.Joined['Avg Deaths in percentage'] # Ποσοστά φόνων
+       
+        # self.Joined['Log Poverty'] = self.Joined['Percent in Poverty Avg'] # Ποσοστά σε φτώχια μέσος όρος 2015-2016
+        # self.Joined['Log Killings'] = self.Joined['Avg Deaths in percentage'] # Ποσοστά φόνων μέσος όρος 2015-2016
+        self.Joined['Log Poverty'] = self.Joined['Percent in Poverty'] # Ποσοστά σε φτώχια
+        self.Joined['Log Killings'] = self.Joined['percentage'] # Ποσοστά φόνων
         # self.Joined['Log Poverty'] = self.Joined['Number in Poverty'] # καθαροοί αριθμοί σε φτώχια
         # self.Joined['Log Killings'] = self.Joined['count'] # καθαροοί αριθμοί φόνων
         # self.Joined['Log Poverty'] = np.log1p(self.Joined['Number in Poverty']) # Αριθμοί σε φτώχια , καθαροί αριθμοί με Λογαριθμική κανονικοποίηση
