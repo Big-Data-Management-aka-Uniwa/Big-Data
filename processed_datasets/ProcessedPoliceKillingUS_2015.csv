@@ -1,0 +1,51 @@
+,state,count,date,manner_of_death,armed,age,gender,race,city,signs_of_mental_illness,threat_level,flee,body_camera,percentage
+0,AK,4,2015-02-08,shot,gun,33.0,M,N,Fairbanks,False,attack,Car,False,0.4036326942482341
+1,AL,17,2015-02-20,shot,gun,36.0,M,W,Arab,False,attack,Not fleeing,False,1.7154389505549947
+2,AR,5,2015-01-08,shot,gun,31.0,M,W,Cabot,False,attack,Not fleeing,False,0.5045408678102926
+3,AZ,42,2015-01-27,shot,gun,28.0,M,W,Phoenix,False,attack,Not fleeing,False,4.238143289606458
+4,CA,189,2015-03-13,shot,gun,27.0,M,H,Los Angeles,False,attack,Not fleeing,False,19.071644803229063
+5,CO,29,2015-11-10,shot,gun,17.0,M,W,Aurora,False,attack,Not fleeing,False,2.9263370332996974
+6,CT,2,2015-08-14,shot,box cutter,31.0,M,W,Bolton,False,attack,Car,False,0.20181634712411706
+7,DC,4,2015-03-12,shot,gun,21.0,M,B,Washington,False,attack,Not fleeing,False,0.4036326942482341
+8,DE,3,2015-03-08,shot,gun,28.0,M,W,Claymont,False,attack,Not fleeing,False,0.30272452068617556
+9,FL,60,2015-02-04,shot,gun,28.0,M,B,Miami,False,attack,Not fleeing,False,6.054490413723512
+10,GA,29,2015-02-23,shot,gun,25.0,M,W,Atlanta,False,attack,Not fleeing,False,2.9263370332996974
+11,HI,2,2015-05-12,shot,gun,39.0,M,B,Honolulu,False,attack,Not fleeing,False,0.20181634712411706
+12,IA,5,2015-01-06,shot,gun,21.0,M,W,Des Moines,False,attack,Car,False,0.5045408678102926
+13,ID,7,2015-01-24,shot,gun,31.0,M,W,Boise,False,attack,Not fleeing,False,0.7063572149344097
+14,IL,21,2015-04-02,shot,gun,27.0,M,B,Chicago,False,attack,Not fleeing,False,2.119071644803229
+15,IN,19,2015-01-15,shot,gun,29.0,M,W,Indianapolis,False,attack,Not fleeing,False,1.917255297679112
+16,KS,9,2015-01-03,shot,gun,21.0,M,W,Kansas City,False,attack,Not fleeing,False,0.9081735620585267
+17,KY,16,2015-01-18,shot,gun,53.0,M,W,Louisville,False,attack,Not fleeing,False,1.6145307769929365
+18,LA,27,2015-09-15,shot,gun,33.0,M,B,New Orleans,False,attack,Not fleeing,False,2.7245206861755804
+19,MA,9,2015-03-27,shot,knife,49.0,M,W,Boston,False,attack,Not fleeing,False,0.9081735620585267
+20,MD,15,2015-01-24,shot,vehicle,19.0,M,B,Baltimore,False,other,Not fleeing,False,1.513622603430878
+21,ME,2,2015-02-09,shot,gun,23.0,M,W,Bangor,False,attack,Foot,False,0.20181634712411706
+22,MI,16,2015-01-29,shot,gun,17.0,M,W,Detroit,False,attack,Not fleeing,False,1.6145307769929365
+23,MN,12,2015-01-14,shot,gun,24.0,M,W,St. Paul,False,attack,Not fleeing,False,1.2108980827447022
+24,MO,21,2015-02-28,shot,gun,23.0,M,W,St. Louis,False,attack,Not fleeing,False,2.119071644803229
+25,MS,8,2015-02-15,shot,gun,49.0,M,W,Barton,False,attack,Not fleeing,False,0.8072653884964682
+26,MT,4,2015-01-08,shot,gun,22.0,M,W,Billings,False,attack,Not fleeing,False,0.4036326942482341
+27,NC,23,2015-02-07,shot,gun,18.0,M,W,Gastonia,False,attack,Not fleeing,False,2.320887991927346
+28,ND,1,2015-06-16,shot,gun,31.0,M,N,Wood Lake,False,attack,Not fleeing,False,0.10090817356205853
+29,NE,8,2015-01-27,shot,gun,39.0,M,W,Omaha,False,attack,Not fleeing,False,0.8072653884964682
+30,NH,3,2015-01-21,shot,knife,23.0,M,W,Bath,True,other,Not fleeing,False,0.30272452068617556
+31,NJ,15,2015-01-14,shot,knife,24.0,M,W,Camden,False,attack,Not fleeing,False,1.513622603430878
+32,NM,20,2015-07-31,shot,gun,34.0,M,H,Albuquerque,False,attack,Not fleeing,False,2.0181634712411705
+33,NV,19,2015-12-14,shot,gun,36.0,M,W,Las Vegas,False,attack,Not fleeing,False,1.917255297679112
+34,NY,19,2015-02-08,shot,gun,38.0,M,W,Queens,False,attack,Not fleeing,False,1.917255297679112
+35,OH,29,2015-06-09,shot,gun,22.0,M,W,Columbus,False,attack,Not fleeing,False,2.9263370332996974
+36,OK,32,2015-01-04,shot,gun,20.0,M,W,Oklahoma City,False,attack,Not fleeing,False,3.229061553985873
+37,OR,15,2015-07-01,shot,gun,49.0,M,W,Portland,False,attack,Not fleeing,False,1.513622603430878
+38,PA,18,2015-01-06,shot,gun,20.0,M,B,Allentown,False,attack,Not fleeing,False,1.8163471241170535
+39,SC,19,2015-05-21,shot,gun,24.0,M,W,Irmo,False,attack,Not fleeing,False,1.917255297679112
+40,SD,3,2015-09-04,shot,gun,31.0,M,W,Lead,True,attack,Not fleeing,False,0.30272452068617556
+41,TN,20,2015-08-26,shot,gun,24.0,M,W,Chattanooga,False,attack,Not fleeing,False,2.0181634712411705
+42,TX,98,2015-07-07,shot,gun,31.0,M,W,Houston,False,attack,Not fleeing,False,9.889001009081735
+43,UT,10,2015-01-08,shot,gun,24.0,M,W,Salt Lake City,False,attack,Not fleeing,False,1.0090817356205852
+44,VA,18,2015-09-05,shot,gun,23.0,M,B,Portsmouth,False,attack,Not fleeing,False,1.8163471241170535
+45,VT,1,2015-12-22,shot,gun,56.0,M,W,Burlington,False,attack,Not fleeing,True,0.10090817356205853
+46,WA,16,2015-01-02,shot,gun,35.0,M,W,Seattle,True,attack,Not fleeing,False,1.6145307769929365
+47,WI,11,2015-02-24,shot,gun,25.0,M,W,Ashwaubenon,False,attack,Not fleeing,False,1.109989909182644
+48,WV,10,2015-03-14,shot,gun,33.0,M,W,Morgantown,False,attack,Not fleeing,False,1.0090817356205852
+49,WY,6,2015-05-20,shot,gun,39.0,M,W,Casper,False,attack,Not fleeing,False,0.6054490413723511
