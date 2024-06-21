@@ -1,3 +1,4 @@
+from os import system
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn import metrics
@@ -12,39 +13,60 @@ class Clustering:
     """
     def __init__(self):
         
-        # Το αρχείο ./processed_datasets/ProcessedPoliceKillingUS.csv περιέχει τους καθαρούς αριθμούς και τα ποσοστά φόνων για τα έτην 2015 και 2016
-        # Το αρχείο ./processed_datasets/ProcessedPovertyUS.csv περιέχει τους καθαρούς αριθμούς και τα ποσοστά σε φώχια για τα έτην 2015 και 2016
+        # Το αρχείο ../processed_datasets/ProcessedPoliceKillingUS.csv περιέχει τους καθαρούς αριθμούς και τα ποσοστά φόνων για τα έτη 2015 και 2016
+        # Το αρχείο ../processed_datasets/ProcessedPovertyUS.csv περιέχει τους καθαρούς αριθμούς και τα ποσοστά σε φτώχια για τα έτη 2015 και 2016
         
-        # Τα αρχεία με κατάληξη Avg_2015_2016 έχουν τα ποσοστα σε φώχια και φόνων σε μέσο όρο των ετων 2015-2016
+        # Τα αρχεία με κατάληξη Avg_2015_2016 έχουν τα ποσοστά σε φτώχια και φόνων σε μέσο όρο των ετών 2015-2016
         
         # [Step 1] Load the processed datasets
-        self.PoliceKillingUS = pd.read_csv('../processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
-        #self.PoliceKillingUS = pd.read_csv('../datasets/PolliceKillingUS_Avg_2015_2016.csv', encoding='utf-8') #ποσοστά συνδιασμός ετών 2015-2016
-        #self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]  # Filter for 2015 
-        self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016]  # Filter for 2016 .Εδώ comment out και βάζεις σε comment το 2015
-        
-        self.PovertyUS = pd.read_csv('../processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
-        #self.PovertyUS = pd.read_csv('../datasets/PovertyUS_Avg_2015_2016.csv', encoding='utf-8')
-        #self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]  # Filter for 2016 data
-        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2016]  # Filter for 2016 data.Εδώ comment out και βάζεις σε comment το 2015
+        choice = 0
+        while choice < 1 or choice > 7:
+            system('clear')
+            print("Choose the pair of datasets (Police Killing & Poverty) for clustering:")
+            print("[1] 2015 in Rates")
+            print("[2] 2016 in Rates")
+            print("[3] 2015 in Numbers")
+            print("[4] 2016 in Numbers")
+            print("[5] 2015 in Logarithmic Normalization")
+            print("[6] 2016 in Logarithmic Normalization")
+            print("[7] 2015-2016 in Rates")
+            choice = int(input("Enter your choice: "))
+
+        if choice == 1 or choice == 3 or choice == 5:
+            self.PoliceKillingUS = pd.read_csv('../processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
+            self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015] # filter for 2015 data
+            self.PovertyUS = pd.read_csv('../processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
+            self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015] # filter for 2015 data
+        elif choice == 2 or choice == 4 or choice == 6:
+            self.PoliceKillingUS = pd.read_csv('../processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
+            self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016] # filter for 2016 data
+            self.PovertyUS = pd.read_csv('../processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
+            self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2016] # filter for 2016 data
+        elif choice == 7:
+            self.PoliceKillingUS = pd.read_csv('../datasets/PolliceKillingUS_Avg_2015_2016.csv', encoding='utf-8')
+            self.PovertyUS = pd.read_csv('../datasets/PovertyUS_Avg_2015_2016.csv', encoding='utf-8')
 
         # [Step 2] Merge the datasets on 'state' and 'Name'
         self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='outer')
         self.Joined.fillna(0, inplace=True)  # Replace missing values with 0
-        #self.Joined.loc[self.Joined['state'] == 0, 'state'] = self.Joined.loc[self.Joined['state'] == 0, 'Name']  # Replace missing state names
+        self.Joined.loc[self.Joined['state'] == 0, 'state'] = self.Joined.loc[self.Joined['state'] == 0, 'Name']  # Replace missing state names
         self.Joined.to_csv('./Joined.csv', index=False)  # Save the joined dataset for reference
 
         # [Step 3] Create log-transformed columns for poverty and killings
        
-        #self.Joined['Log Poverty'] = self.Joined['Percent in Poverty Avg'] # Ποσοστά σε φτώχια μέσος όρος 2015-2016
-        #self.Joined['Log Killings'] = self.Joined['Avg Deaths in percentage'] # Ποσοστά φόνων μέσος όρος 2015-2016
-        #self.Joined['Log Poverty'] = self.Joined['Percent in Poverty'] # Ποσοστά σε φτώχια
-        #self.Joined['Log Killings'] = self.Joined['percentage'] # Ποσοστά φόνων
-        #self.Joined['Log Poverty'] = self.Joined['Number in Poverty'] # καθαροοί αριθμοί σε φτώχια
-        #self.Joined['Log Killings'] = self.Joined['count'] # καθαροοί αριθμοί φόνων
-        self.Joined['Log Poverty'] = np.log1p(self.Joined['Number in Poverty']) # Αριθμοί σε φτώχια , καθαροί αριθμοί με Λογαριθμική κανονικοποίηση
-        self.Joined['Log Killings'] = np.log1p(self.Joined['count']) # Αριθμοί φόνων , καθαροί αριθμοί με Λογαριθμική κανονικοποίηση
-        
+        if choice == 1 or choice == 2:
+            self.Joined['Log Poverty'] = self.Joined['Percent in Poverty'] # Ποσοστά σε φτώχια
+            self.Joined['Log Killings'] = self.Joined['percentage']        # Ποσοστά φόνων
+        elif choice == 3 or choice == 4:
+            self.Joined['Log Poverty'] = self.Joined['Number in Poverty'] # Αριθμοί σε φτώχια
+            self.Joined['Log Killings'] = self.Joined['count']            # Αριθμοί φόνων
+        elif choice == 5 or choice == 6:
+            self.Joined['Log Poverty'] = np.log1p(self.Joined['Number in Poverty']) # Αριθμοί σε φτώχια , καθαροί αριθμοί με Λογαριθμική κανονικοποίηση
+            self.Joined['Log Killings'] = np.log1p(self.Joined['count'])            # Αριθμοί φόνων , καθαροί αριθμοί με Λογαριθμική κανονικοποίηση
+        elif choice == 7:
+            self.Joined['Log Poverty'] = self.Joined['Percent in Poverty Avg'] # Ποσοστά σε φτώχια μέσος όρος 2015-2016
+            self.Joined['Log Killings'] = self.Joined['Avg Deaths in percentage'] # Ποσοστά φόνων μέσος όρος 2015-2016
+
         # [Step 4] Select the features for clustering
         self.X = self.Joined[['Log Poverty', 'Log Killings']]
         
@@ -59,7 +81,7 @@ class Clustering:
 
         # [Step 7] Apply K-Means clustering
         kmeans = KMeans(n_clusters=k, n_init=10, random_state=42).fit(self.X)
-        IDX = kmeans.labels_  # Get the labels of each cluster
+        IDX = kmeans.labels_         # Get the labels of each cluster
         C = kmeans.cluster_centers_  # Get the cluster centers
 
         # [Step 8] Plotting the data points and clusters
