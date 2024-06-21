@@ -33,18 +33,18 @@ class Clustering:
             choice = int(input("Enter your choice: "))
 
         if choice == 1 or choice == 3 or choice == 5:
-            self.PoliceKillingUS = pd.read_csv('../processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
+            self.PoliceKillingUS = pd.read_csv('./processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
             self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015] # filter for 2015 data
-            self.PovertyUS = pd.read_csv('../processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
+            self.PovertyUS = pd.read_csv('./processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
             self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015] # filter for 2015 data
         elif choice == 2 or choice == 4 or choice == 6:
-            self.PoliceKillingUS = pd.read_csv('../processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
+            self.PoliceKillingUS = pd.read_csv('./processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8') 
             self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016] # filter for 2016 data
-            self.PovertyUS = pd.read_csv('../processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
+            self.PovertyUS = pd.read_csv('./processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
             self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2016] # filter for 2016 data
         elif choice == 7:
-            self.PoliceKillingUS = pd.read_csv('../datasets/PolliceKillingUS_Avg_2015_2016.csv', encoding='utf-8')
-            self.PovertyUS = pd.read_csv('../datasets/PovertyUS_Avg_2015_2016.csv', encoding='utf-8')
+            self.PoliceKillingUS = pd.read_csv('./datasets/PolliceKillingUS_Avg_2015_2016.csv', encoding='utf-8')
+            self.PovertyUS = pd.read_csv('./datasets/PovertyUS_Avg_2015_2016.csv', encoding='utf-8')
 
         # [Step 2] Merge the datasets on 'state' and 'Name'
         self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='outer')

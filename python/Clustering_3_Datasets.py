@@ -13,13 +13,13 @@ class Clustering:
     def __init__(self):
 
         # [Step 1] Load the processed datasets
-        self.PoliceKillingUS = pd.read_csv('../processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8')
+        self.PoliceKillingUS = pd.read_csv('./processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8')
         self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]  # Filter for 2015 data
         
-        self.PovertyUS = pd.read_csv('../processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
-        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]  # Filter for 2016 data
+        self.PovertyUS = pd.read_csv('./processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
+        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]  # Filter for 2015 data
 
-        self.PopulationUS = pd.read_csv('../processed_datasets/ProcessedPopulationUS_2015.csv', encoding='latin1')
+        self.PopulationUS = pd.read_csv('./processed_datasets/ProcessedPopulationUS_2015.csv', encoding='latin1')
 
         # [Step 2] Merge the datasets on 'state' and 'Name'
         self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='inner')
