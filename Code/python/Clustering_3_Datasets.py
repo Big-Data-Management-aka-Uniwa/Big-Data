@@ -11,22 +11,34 @@ class Clustering:
         Clustering Data 
     """
     def __init__(self):
+
         # [Step 1] Load the processed datasets
         self.PoliceKillingUS = pd.read_csv('./processed_datasets/ProcessedPoliceKillingUS.csv', encoding='utf-8')
-        self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2016]  # Filter for 2016 data
+        self.PoliceKillingUS = self.PoliceKillingUS[self.PoliceKillingUS['date'] == 2015]  # Filter for 2015 data
         
         self.PovertyUS = pd.read_csv('./processed_datasets/ProcessedPovertyUS.csv', encoding='utf-8')
-        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2016]  # Filter for 2016 data
+        self.PovertyUS = self.PovertyUS[self.PovertyUS['Year'] == 2015]  # Filter for 2015 data
+
+        self.PopulationUS = pd.read_csv('./processed_datasets/ProcessedPopulationUS_2015.csv', encoding='latin1')
 
         # [Step 2] Merge the datasets on 'state' and 'Name'
-        self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='outer')
+        self.Joined = pd.merge(self.PoliceKillingUS, self.PovertyUS, left_on='state', right_on='Name', how='inner')
+        print(self.Joined)
+        print("---------------------------------------------------------------------------------------------------")
+  
+        self.Joined = pd.merge(self.Joined, self.PopulationUS, left_on='state', right_on='State', how='inner')
+        self.Joined['Numbers_of_Deaths_with_Population_Factor'] = self.Joined.apply(lambda x: x['count']/x['Total_Population'], axis=1)
+        self.Joined['Poverty_with_Population_Factor'] = self.Joined.apply(lambda x: x['Number in Poverty']/x['Total_Population'], axis=1)
+        print(self.Joined)
+        print("---------------------------------------------------------------------------------------------------")
         self.Joined.fillna(0, inplace=True)  # Replace missing values with 0
         self.Joined.loc[self.Joined['state'] == 0, 'state'] = self.Joined.loc[self.Joined['state'] == 0, 'Name']  # Replace missing state names
-        self.Joined.to_csv('./Joined.csv', index=False)  # Save the joined dataset for reference
+        
 
         # [Step 3] Create log-transformed columns for poverty and killings
-        self.Joined['Log Poverty'] = np.log1p(self.Joined['Number in Poverty'])
-        self.Joined['Log Killings'] = np.log1p(self.Joined['count'])
+        self.Joined['Log Poverty'] = self.Joined['Poverty_with_Population_Factor']#np.log1p(self.Joined['Number in Poverty'])
+        self.Joined['Log Killings'] = self.Joined['Numbers_of_Deaths_with_Population_Factor']#np.log1p(self.Joined['count'])
+        self.Joined.to_csv('./Joined.csv', index=False)  # Save the joined dataset for reference
         
         # [Step 4] Select the features for clustering
         self.X = self.Joined[['Log Poverty', 'Log Killings']]
@@ -42,12 +54,12 @@ class Clustering:
 
         # [Step 7] Apply K-Means clustering
         kmeans = KMeans(n_clusters=k, n_init=10, random_state=42).fit(self.X)
-        IDX = kmeans.labels_  # Get the labels of each cluster
+        IDX = kmeans.labels_         # Get the labels of each cluster
         C = kmeans.cluster_centers_  # Get the cluster centers
 
         # [Step 8] Plotting the data points and clusters
         plt.figure(1)
-        plt.scatter(self.X[:, 0], self.X[:, 1])  # Plot all data without clustering
+        plt.scatter(self.X[:, 0], self.X[:, 1], c=IDX)  # Plot all data without clustering
         plt.title("Clustering Data")
         plt.show()
 
@@ -87,5 +99,5 @@ class Clustering:
 if __name__ == "__main__":
     clustering_instance = Clustering()
 
-    # [Step 12] Draw the SSE Plot
+    #[Step 12] Draw the SSE Plot
     clustering_instance.plot_sse(max_clusters=10)
